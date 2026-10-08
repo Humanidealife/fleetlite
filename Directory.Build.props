@@ -1,0 +1,19 @@
+<Project>
+  <PropertyGroup>
+    <!-- Plateforme et langage, pour tous les projets du dépôt -->
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+
+    <!-- Réglages hérités des modèles, centralisés ici -->
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+
+    <!-- Qualité : analyse plus exigeante que le défaut,
+         et application des règles de style en ligne de commande -->
+    <AnalysisMode>Recommended</AnalysisMode>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+
+    <!-- Étape 2, à activer une fois les avertissements traités (§3.4) -->
+    <!-- <TreatWarningsAsErrors>true</TreatWarningsAsErrors> -->
+  </PropertyGroup>
+</Project>

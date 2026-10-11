@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="FleetLite.Console/FleetLite.Console.csproj" />
+  <Project Path="FleetLite.Domaine/FleetLite.Domaine.csproj" />
+</Solution>

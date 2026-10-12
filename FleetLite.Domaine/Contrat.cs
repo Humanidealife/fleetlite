@@ -4,6 +4,14 @@ using System.Text;
 
 namespace FleetLite.Domaine;
 
-internal class Contrat
+/// <summary>Contrat de location longue durée (LLD) rattaché à un véhicule.</summary>
+public sealed record Contrat(
+    Guid VehiculeId,
+    string Loueur,
+    DateOnly DateDebut,
+    int DureeMois,
+    decimal LoyerMensuel,
+    int KilometrageContractuel)
 {
+    public DateOnly DateFin => DateDebut.AddMonths(DureeMois);
 }

@@ -4,6 +4,12 @@ using System.Text;
 
 namespace FleetLite.Domaine;
 
-internal class SyntheseTco
-{
-}
+public sealed record SyntheseTco(
+    Guid VehiculeId,
+    int MoisFactures,
+    decimal LoyersEchus,
+    decimal CoutsEngages,
+    decimal Total,
+    decimal? CoutParKilometre,
+    int KilometrageProjeteFinContrat,
+    int EcartKilometrique);

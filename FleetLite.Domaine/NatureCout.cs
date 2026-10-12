@@ -4,6 +4,11 @@ using System.Text;
 
 namespace FleetLite.Domaine;
 
-internal class Class1
+public enum NatureCout
 {
+    Carburant = 10,
+    Entretien = 20,
+    Pneumatiques = 30,
+    Assurance = 40,
+    Sinistre = 50
 }

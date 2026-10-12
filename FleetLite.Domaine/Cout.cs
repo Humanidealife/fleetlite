@@ -4,6 +4,8 @@ using System.Text;
 
 namespace FleetLite.Domaine;
 
-internal class Cout
-{
-}
+public sealed record Cout(
+    Guid VehiculeId,
+    DateOnly Date,
+    NatureCout Nature,
+    decimal Montant);

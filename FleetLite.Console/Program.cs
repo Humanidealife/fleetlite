@@ -35,20 +35,20 @@ var kilometrages = new Dictionary<Guid, int>
 
 List<Cout> couts =
 [
-    new(id1, new DateOnly(2026,  8, 12), NatureCout.Carburant,    3_220.45m),
-    new(id1, new DateOnly(2026,  5, 20), NatureCout.Entretien,      890.00m),
-    new(id1, new DateOnly(2025, 11,  3), NatureCout.Pneumatiques,   640.00m),
-    new(id1, new DateOnly(2026,  1, 15), NatureCout.Assurance,    1_150.00m),
+    new(Guid.NewGuid(), id1, new DateOnly(2026,  8, 12), NatureCout.Carburant,    3_220.45m),
+    new(Guid.NewGuid(), id1, new DateOnly(2026,  5, 20), NatureCout.Entretien,      890.00m),
+    new(Guid.NewGuid(), id1, new DateOnly(2025,  11, 3), NatureCout.Pneumatiques,   640.00m),
+    new(Guid.NewGuid(), id1, new DateOnly(2026,  1, 15), NatureCout.Assurance,    1_150.00m),
 
-    new(id2, new DateOnly(2026,  7,  9), NatureCout.Carburant,    2_480.30m),
-    new(id2, new DateOnly(2026,  3, 22), NatureCout.Entretien,      705.00m),
-    new(id2, new DateOnly(2025,  6, 14), NatureCout.Pneumatiques,   480.00m),
-    new(id2, new DateOnly(2026,  2,  1), NatureCout.Assurance,      455.30m),
+    new(Guid.NewGuid(), id2, new DateOnly(2026,  7,  9), NatureCout.Carburant,    2_480.30m),
+    new(Guid.NewGuid(), id2, new DateOnly(2026,  3, 22), NatureCout.Entretien,      705.00m),
+    new(Guid.NewGuid(), id2, new DateOnly(2025,  6, 14), NatureCout.Pneumatiques,   480.00m),
+    new(Guid.NewGuid(), id2, new DateOnly(2026,  2,  1), NatureCout.Assurance,      455.30m),
 
-    new(id3, new DateOnly(2026,  8, 28), NatureCout.Carburant,    5_310.75m),
-    new(id3, new DateOnly(2026,  4, 11), NatureCout.Entretien,    1_240.00m),
-    new(id3, new DateOnly(2025, 12,  2), NatureCout.Pneumatiques,   620.00m),
-    new(id3, new DateOnly(2026,  6, 30), NatureCout.Sinistre,       309.50m),
+    new(Guid.NewGuid(), id3, new DateOnly(2026,  8, 28), NatureCout.Carburant,    5_310.75m),
+    new(Guid.NewGuid(), id3, new DateOnly(2026,  4, 11), NatureCout.Entretien,    1_240.00m),
+    new(Guid.NewGuid(), id3, new DateOnly(2025, 12,  2), NatureCout.Pneumatiques,   620.00m),
+    new(Guid.NewGuid(), id3, new DateOnly(2026,  6, 30), NatureCout.Sinistre,       309.50m),
 ];
 
 int totalAlertes = 0;

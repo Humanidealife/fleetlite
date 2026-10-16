@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace FleetLite.Domaine;
+﻿namespace FleetLite.Domaine;
 
 /// <summary>Source de la date courante, injectée pour rendre les calculs testables.</summary>
 public interface IHorloge

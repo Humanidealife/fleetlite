@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace FleetLite.Domaine;
+﻿namespace FleetLite.Domaine;
 
 public sealed record Cout(
     Guid Id,

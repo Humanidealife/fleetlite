@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace FleetLite.Domaine;
+﻿namespace FleetLite.Domaine;
 
 /// <summary>Contrat de location longue durée (LLD) rattaché à un véhicule.</summary>
 public sealed record Contrat(

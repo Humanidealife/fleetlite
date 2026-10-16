@@ -12,6 +12,8 @@
          et application des règles de style en ligne de commande -->
     <AnalysisMode>Recommended</AnalysisMode>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
 
     <!-- Étape 2, à activer une fois les avertissements traités (§3.4) -->
     <!-- <TreatWarningsAsErrors>true</TreatWarningsAsErrors> -->

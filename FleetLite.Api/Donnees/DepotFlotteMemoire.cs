@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace FleetLite.Api.Donnees;
 
-/// <summary>Implémentation en mémoire, remplacée par SQL Server en séance 3.</summary>
+/// <summary>Implémentation en mémoire, remplacée par SQL Server ultérieurement.</summary>
 public sealed class DepotFlotteMemoire : IDepotFlotte
 {
     private static readonly Guid Id1 = Guid.Parse("11111111-1111-1111-1111-111111111111");

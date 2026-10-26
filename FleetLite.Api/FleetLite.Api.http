@@ -1,6 +1,24 @@
-@FleetLite.Api_HostAddress = http://localhost:5283
+@hote = https://localhost:7080
+@vehicule1 = 11111111-1111-1111-1111-111111111111
 
-GET {{FleetLite.Api_HostAddress}}/weatherforecast/
+### Contrôle de santé
+GET {{hote}}/sante
+
+### Document OpenAPI (développement uniquement)
+GET {{hote}}/openapi/v1.json
+
+### Liste des véhicules du parc
+GET {{hote}}/api/v1/vehicules
 Accept: application/json
 
-###
+### Synthèse de TCO du Peugeot 308
+GET {{hote}}/api/v1/vehicules/{{vehicule1}}/tco
+Accept: application/json
+
+### Véhicule inexistant : 404
+GET {{hote}}/api/v1/vehicules/99999999-9999-9999-9999-999999999999
+Accept: application/json
+
+### Identifiant malformé : 404 dès le routage, sans entrer dans le code
+GET {{hote}}/api/v1/vehicules/bonjour
+Accept: application/json

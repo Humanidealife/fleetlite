@@ -18,18 +18,18 @@ public static class VehiculesEndpoints
     }
 
     /// <summary>Liste les véhicules du parc.</summary>
-    private static Ok<IReadOnlyList<VehiculeDto>> ListerVehicules(IDepotFlotte depot)
+    internal static Ok<IReadOnlyList<VehiculeDto>> ListerVehicules(IDepotFlotte depot)
         => TypedResults.Ok<IReadOnlyList<VehiculeDto>>(
                depot.ListerVehicules().Select(v => v.VersDto()).ToList());
 
     /// <summary>Lit un véhicule par son identifiant.</summary>
-    private static Results<Ok<VehiculeDto>, NotFound> LireVehicule(Guid id, IDepotFlotte depot)
+    internal static Results<Ok<VehiculeDto>, NotFound> LireVehicule(Guid id, IDepotFlotte depot)
         => depot.TrouverDossier(id) is { } dossier
             ? TypedResults.Ok(dossier.Vehicule.VersDto())
             : TypedResults.NotFound();
 
     /// <summary>Calcule la synthèse de coût total de détention d'un véhicule, alertes comprises.</summary>
-    private static Results<Ok<SyntheseTcoDto>, NotFound> LireTco(
+    internal static Results<Ok<SyntheseTcoDto>, NotFound> LireTco(
         Guid id,
         IDepotFlotte depot,
         CalculTco calcul,

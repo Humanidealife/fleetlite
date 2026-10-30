@@ -39,4 +39,7 @@ public static class Correspondances
             s.KilometrageProjeteFinContrat,
             s.EcartKilometrique,
             alertes.Select(a => a.VersDto()).ToList());
+
+    public static CoutDto VersDto(this Cout c) =>
+    new(c.Id, c.VehiculeId, c.Date, c.Nature.ToString(), c.Montant);
 }

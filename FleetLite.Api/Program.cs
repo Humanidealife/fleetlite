@@ -42,8 +42,9 @@ app.UseCors(PolitiqueFront);   // AVANT toute authentification
 // ───────────────── Points d'entrée ─────────────────
 app.MapHealthChecks("/sante");
 
-app.MapGroup("/api/v1")
-   .WithTags("Flotte")
-   .MapVehicules();
+var api = app.MapGroup("/api/v1").WithTags("Flotte");
+api.MapVehicules();
+api.MapCouts();
+api.MapAlertes();
 
 app.Run();

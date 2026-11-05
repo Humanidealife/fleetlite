@@ -22,3 +22,37 @@ Accept: application/json
 ### Identifiant malformé : 404 dès le routage, sans entrer dans le code
 GET {{hote}}/api/v1/vehicules/bonjour
 Accept: application/json
+
+### Créer un coût sur le Peugeot 308 -> 201 + Location
+POST {{hote}}/api/v1/vehicules/{{vehicule1}}/couts
+Content-Type: application/json
+
+{ "date": "2026-08-30", "nature": "Entretien", "montant": 210.50 }
+
+### Le TCO a augmenté du montant créé
+GET {{hote}}/api/v1/vehicules/{{vehicule1}}/tco
+Accept: application/json
+
+### Corps invalide -> 400 détaillé par champ
+POST {{hote}}/api/v1/vehicules/{{vehicule1}}/couts
+Content-Type: application/json
+
+{ "date": "2030-01-01", "nature": "Pizza", "montant": -5 }
+
+### Véhicule inconnu -> 404
+POST {{hote}}/api/v1/vehicules/99999999-9999-9999-9999-999999999999/couts
+Content-Type: application/json
+
+{ "date": "2026-08-30", "nature": "Entretien", "montant": 10 }
+
+### Toutes les alertes du parc
+GET {{hote}}/api/v1/alertes
+Accept: application/json
+
+### Seulement les critiques
+GET {{hote}}/api/v1/alertes?niveau=critique
+Accept: application/json
+
+### Taille de page hors bornes -> 400
+GET {{hote}}/api/v1/alertes?taille=999
+Accept: application/json

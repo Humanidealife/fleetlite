@@ -2,6 +2,7 @@
 
 public enum NatureCout
 {
+    NonRenseignee = 0,
     Carburant = 10,
     Entretien = 20,
     Pneumatiques = 30,

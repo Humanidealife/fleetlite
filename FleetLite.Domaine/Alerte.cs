@@ -2,6 +2,7 @@
 
 public enum NiveauAlerte
 {
+    NonRenseigne = 0,
     Information = 10,
     Vigilance = 20,
     Critique = 30

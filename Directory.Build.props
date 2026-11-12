@@ -2,7 +2,6 @@
   <PropertyGroup>
     <!-- Plateforme et langage, pour tous les projets du dépôt -->
     <TargetFramework>net10.0</TargetFramework>
-    <LangVersion>latest</LangVersion>
 
     <!-- Réglages hérités des modèles, centralisés ici -->
     <Nullable>enable</Nullable>

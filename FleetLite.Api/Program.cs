@@ -1,6 +1,7 @@
 using FleetLite.Api.Donnees;
 using FleetLite.Api.Endpoints;
 using FleetLite.Domaine;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,7 +24,20 @@ builder.Services.AddSingleton<IHorloge>(_ =>
         ? new HorlogeFigee(date)
         : new HorlogeSysteme());
 
-builder.Services.AddSingleton<IDepotFlotte, DepotFlotteMemoire>();
+string chaineFleetLite = builder.Configuration.GetConnectionString("FleetLite")
+    ?? throw new InvalidOperationException(
+        "Chaîne de connexion 'FleetLite' introuvable. En développement : dotnet user-secrets set " +
+        "\"ConnectionStrings:FleetLite\" ; ailleurs : variable d'environnement ConnectionStrings__FleetLite.");
+
+builder.Services.AddDbContext<FleetLiteContext>(options =>
+{
+    options.UseSqlServer(chaineFleetLite);
+
+    if (builder.Environment.IsDevelopment())
+        options.LogTo(Console.WriteLine, LogLevel.Information);   // voir le SQL produit
+});
+
+builder.Services.AddScoped<IDepotFlotte, DepotFlotteSql>();
 builder.Services.AddSingleton<CalculTco>();
 builder.Services.AddSingleton<MoteurAlertes>();
 

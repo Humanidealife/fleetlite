@@ -37,7 +37,7 @@ builder.Services.AddDbContext<FleetLiteContext>(options =>
         options.LogTo(Console.WriteLine, LogLevel.Information);   // voir le SQL produit
 });
 
-builder.Services.AddScoped<IDepotFlotte, DepotFlotteSql>();
+builder.Services.AddSingleton<IDepotFlotte, DepotFlotteMemoire>();
 builder.Services.AddSingleton<CalculTco>();
 builder.Services.AddSingleton<MoteurAlertes>();
 

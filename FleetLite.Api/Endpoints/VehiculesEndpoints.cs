@@ -3,7 +3,6 @@ using FleetLite.Api.Donnees;
 using FleetLite.Domaine;
 
 using Microsoft.AspNetCore.Http.HttpResults;
-using System;
 
 namespace FleetLite.Api.Endpoints;
 
@@ -38,16 +37,14 @@ public static class VehiculesEndpoints
     {
         if (depot.TrouverDossier(id) is not { } dossier)
         {
-            journal.LogWarning("TCO demandé pour un véhicule inconnu : {VehiculeId}", id);
+            journal.TcoVehiculeInconnu(id);
             return TypedResults.NotFound();
         }
 
         SyntheseTco synthese = calcul.Calculer(dossier.Contrat, dossier.Couts, dossier.KilometrageReleve);
         IReadOnlyList<Alerte> alertes = moteur.Evaluer(dossier.Contrat, synthese);
 
-        journal.LogInformation(
-            "TCO calculé pour {VehiculeId} : total {Total}, {NombreAlertes} alerte(s)",
-            id, synthese.Total, alertes.Count);
+        journal.TcoCalcule(id, synthese.Total, alertes.Count);
 
         return TypedResults.Ok(synthese.VersDto(dossier, alertes));
     }

@@ -3,8 +3,6 @@ using FleetLite.Api.Donnees;
 using FleetLite.Domaine;
 
 using Microsoft.AspNetCore.Http.HttpResults;
-using System;
-using System.Collections.Generic;
 
 namespace FleetLite.Api.Endpoints;
 
@@ -12,7 +10,7 @@ public static class CoutsEndpoints
 {
     private const decimal MontantMaximal = 1_000_000m;
 
-    // NonRenseignee est la valeur zéro de l'énumération :
+    // NonRenseignee est la valeur zéro de l'énumération (séance 1, §5.2.2) :
     // elle sert à détecter une absence, jamais à être acceptée.
     private static readonly string[] NaturesAcceptees =
         Enum.GetNames<NatureCout>()
@@ -83,9 +81,7 @@ public static class CoutsEndpoints
         var cout = new Cout(Guid.NewGuid(), id, corps.Date!.Value, nature, corps.Montant!.Value);
         depot.AjouterCout(cout);
 
-        journal.LogInformation(
-            "Coût {CoutId} ajouté au véhicule {VehiculeId} : {Nature} {Montant}",
-            cout.Id, id, cout.Nature, cout.Montant);
+        journal.CoutAjoute(cout.Id, id, cout.Nature, cout.Montant);
 
         return TypedResults.Created(
             $"/api/v1/vehicules/{id}/couts/{cout.Id}",

@@ -395,3 +395,9 @@ dotnet_naming_style.s_camelcase.required_suffix =
 dotnet_naming_style.s_camelcase.word_separator = 
 dotnet_naming_style.s_camelcase.capitalization = camel_case
 
+# CA1861 : tableaux constants passés en argument (catégorie Performance).
+# Décision assumée : le code des migrations est généré par EF Core et ne s'exécute
+# qu'une fois par base — cas de suppression prévu par Microsoft (« The invocation
+# only runs once »). Le corriger à la main serait à refaire à chaque migration.
+[FleetLite.Api/Migrations/**.cs]
+dotnet_diagnostic.CA1861.severity = none
